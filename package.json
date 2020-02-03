@@ -1,0 +1,14 @@
+{
+  "name": "gerar-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amanda Martins <mandi.martins00@gmail.com> (https://github.com/mandimartins)",
+  "license": "MIT",
+  "dependencies": {
+    "pdfmake": "^0.1.64"
+  }
+}
