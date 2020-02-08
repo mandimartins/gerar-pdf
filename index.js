@@ -9,6 +9,9 @@ const fonts = {
   }
 };
 
+const express = require('express');
+const app = express();
+
 const lines = [];
 lines.push([
   {
@@ -79,9 +82,26 @@ const docDefinition = {
   }
 };
 
-const pdf = printer.createPdfKitDocument(docDefinition);
+app.get('/get/:name', (req, res) => {
+  const pdf = printer.createPdfKitDocument({
+    content: 'Olá ' + req.params.name
+  });
 
-const fs = require('fs');
+  //   res.header('Content-disposition', 'inline; filename=meu-pdf.pdf');
+  res.header('Content-disposition', 'attachment; filename=meu-pdf.pdf');
+  res.header('Content-type', 'application/pdf');
+  pdf.pipe(res);
+  pdf.end();
+});
 
-pdf.pipe(fs.createWriteStream('doc.pdf'));
-pdf.end();
+// const pdf = printer.createPdfKitDocument(docDefinition);
+
+// const fs = require('fs');
+
+// pdf.pipe(fs.createWriteStream('doc.pdf'));
+// pdf.end();
+
+app.listen(3000),
+  () => {
+    console.log('Server is running...');
+  };

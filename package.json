@@ -9,6 +9,7 @@
   "author": "Amanda Martins <mandi.martins00@gmail.com> (https://github.com/mandimartins)",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "pdfmake": "^0.1.64"
   }
 }
